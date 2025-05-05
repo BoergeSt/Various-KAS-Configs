@@ -1,0 +1,41 @@
+header:
+  version: 14
+  includes:
+    - include/common-settings.yml
+
+
+defaults:
+  repos:
+    branch: master
+
+
+machine: qemuarm64
+distro: nodistro
+target: core-image-base
+
+local_conf_header:
+  legal-stuff: |
+    ACCEPT_EULA_$MACHINE = "1"
+  debug-tweaks: |
+    EXTRA_IMAGE_FEATURES += " allow-empty-password empty-root-password allow-root-login post-install-logging "
+  libgpiod: |
+    IMAGE_INSTALL:append = " libgpiod libgpiod-tools libgpiod-cli libgpiod-manager "
+    PACKAGECONFIG:pn-libgpiod = " dbus "
+
+
+repos:
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    layers:
+      meta:
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    layers:
+      meta-oe:
+      meta-python:
+      meta-gnome:
+      meta-multimedia:
+      meta-networking:
+      meta-webserver:
+
+
