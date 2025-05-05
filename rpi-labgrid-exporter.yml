@@ -67,8 +67,8 @@ repos:
     url: https://github.com/labgrid-project/meta-labgrid.git
   meta-rauc:
     url: https://github.com/rauc/meta-rauc.git
-  meta-labgrid-exporter:
-    path: ./meta-rpi-labgrid-exporter
+  meta-rpi-labgrid-exporter:
+    url: https://github.com/BoergeSt/meta-rpi-labgrid-exporter.git
   meta-bst:
     path: ./meta-bst
 
