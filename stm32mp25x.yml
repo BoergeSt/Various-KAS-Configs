@@ -1,0 +1,39 @@
+header:
+  version: 14
+  includes:
+    - include/common-settings.yml
+    - include/common-scarthgap.yml
+
+
+machine: stm32mp25-eval
+distro: openstlinux-weston
+#target: core-image-base
+target: st-image-core
+
+local_conf_header:
+  legal-stuff: |
+    ACCEPT_EULA_$MACHINE = "1"
+
+repos:
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    layers:
+      meta:
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    layers:
+      meta-oe:
+      meta-python:
+      meta-gnome:
+      meta-multimedia:
+      meta-networking:
+      meta-webserver:
+  meta-st-openstlinux:
+    url: https://github.com/STMicroelectronics/meta-st-openstlinux
+  meta-st-stm32mp:
+    url: https://github.com/STMicroelectronics/meta-st-stm32mp
+  meta-st-stm32mp-addons:
+    url: https://github.com/STMicroelectronics/meta-st-stm32mp-addons
+  #meta-st-scripts:
+  #  url: https://github.com/STMicroelectronics/meta-st-scripts
+
