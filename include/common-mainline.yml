@@ -1,0 +1,8 @@
+distro: nodistro
+
+target:
+  - core-image-base
+
+repos:
+  meta-mainline-common:
+    url: https://source.denx.de/denx/meta-mainline-common.git

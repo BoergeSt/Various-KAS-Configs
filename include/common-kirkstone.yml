@@ -1,0 +1,7 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: kirkstone
+
