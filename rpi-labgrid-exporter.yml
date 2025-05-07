@@ -28,9 +28,9 @@ local_conf_header:
     WKS_FILE = "sdimage-rpi-labgrid-exporter.wks"
   rauc: |
     DISTRO_FEATURES:append = " rauc "
-    RAUC_KEY_FILE = "${COREBASE}/../../container/ci_cd_setup/certs/rpi-rauc/rpi-rauc.key"
-    RAUC_CERT_FILE = "${COREBASE}/../../container/ci_cd_setup/certs/rpi-rauc/rpi-rauc.crt"
-    RAUC_KEYRING_FILE = "${COREBASE}/../../container/ci_cd_setup/certs/rootCA/rootCA.crt"
+    RAUC_KEY_FILE = "${COREBASE}/../certs/rauc/rauc.key"
+    RAUC_CERT_FILE = "${COREBASE}/../certs/rauc/rauc.crt"
+    RAUC_KEYRING_FILE = "${COREBASE}/../certs/rauc/rootCA.crt"
   overlayfs: |
     ### Settings for ETC-Overlayfs
     OVERLAYFS_ETC_MOUNT_POINT = "/data"
@@ -45,8 +45,9 @@ local_conf_header:
   readonly: |
     CMDLINE:append = " ro "
     EXTRA_IMAGE_FEATURES = "read-only-rootfs"
-  bst: |
-    IMAGE_INSTALL:append = " bst-ssh-certificates "
+  ssh-certs: |
+    IMAGE_INSTALL:append = " ssh-certificates "
+    SSH_CA_FILE = "${COREBASE}/../certs/ssh/ssh-ca.pub"
 
 
 repos:
